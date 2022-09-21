@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #newTask:focus ~ .tags {
-    display: block;
-} */

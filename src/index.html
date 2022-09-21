@@ -13,39 +13,68 @@
         <h2 class="font-bold text-2xl">Welcome back, Bekbol!</h2>
         <p class="text-gray-400" id="subHeader">You've got 7 tasks coming up in the next days.</p>
         <div class="mx-5">
-            <form class="mt-10 flex">
+            <form class="mt-10 flex max-w-full" id="newTodoForm">
 
                 <input
-                    class="appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                    type="checkbox" value="" id="flexCheckDefault">
+                    class="form__input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                    type="checkbox" name="checked" id="todoChecked">
                 </input>
-                <div class="flex flex-col">
-                    <input class="outline-none ml-3 bg-transparent" placeholder="A new task"
-                        id="newTask">
+                <div class="flex flex-col flex-1 max-w-full">
+                    <input class="form__input outline-none ml-3 bg-transparent" placeholder="A new task" name="content" id="newTodo">
                     </input>
-                    <input class="outline-none ml-3 mt-2 bg-transparent" placeholder="Tag">
+                    <input class="form__input outline-none ml-3 mt-2 bg-transparent" placeholder="Tag" name="tag" id="newTodoTag">
                     </input>
-                    <button type="submit" class="ml-3 mt-3 inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Add</button>
+                    <button type="submit"
+                        class="self-start mx-w-xs flex-initial block ml-3 mt-3 px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Add</button>
                 </div>
-                
+
 
             </form>
         </div>
-        <div class="mt-5 p-5 bg-white rounded-lg drop-shadow-md">
-            <input
-                class="appearance-none mr-5 h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
-                type="checkbox" value="" id="flexCheckDefault">
-            </input>
-            <p class="truncate">
-                Working only for 60 grands? R u kidding me, bruh? Working only for 60 grands? R u kidding me, bruh?
-                Working only for 60 grands? R u kidding me, bruh?
-            </p>
-            <p
-                class="max-w-max py-1 px-2 rounded-lg ml-9 mt-3 border border-solid border-gray-300 text-gray-400 font-light">
-                🎨 Design
-            </p>
+        <div class="flex flex-col todos">
+
+        </div>
+        <div class="mt-5 p-5 bg-white rounded-lg drop-shadow-md flex gap-x-5">
+            <div class="block">
+                <input
+                    class="appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                    type="checkbox">
+                </input>
+            </div>
+
+
+            <div class="flex flex-col">
+                <p class="block">
+                    Working only for 60 grands? R u kidding me, bruh? Working only for 60 grands? R u kidding me, bruh?
+                    Working only for 60 grands? R u kidding me, bruh?
+                </p>
+                <p
+                    class="max-w-max py-1 px-2 rounded-lg mt-3 border border-solid border-gray-300 text-gray-400 font-light">
+                    🎨 Design
+                </p>
+            </div>
+
         </div>
     </div>
+    <template id="todoTemplate">
+        <div class="element mt-5 p-5 bg-white rounded-lg drop-shadow-md flex gap-x-5">
+            <div class="block">
+                <input
+                    class="todo-status appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                    type="checkbox">
+                </input>
+            </div>
+
+
+            <div class="flex flex-col">
+                <p class="block todo">
+                </p>
+                <p
+                    class="todo-tag max-w-max py-1 px-2 rounded-lg mt-3 border border-solid border-gray-300 text-gray-400 font-light">
+                </p>
+            </div>
+        </div>
+    </template>
 </body>
 
 </html>

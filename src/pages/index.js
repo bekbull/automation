@@ -1,40 +1,40 @@
 import './index.css';
 
-import {
-    addTaskInput
-} from '../scripts/utils/constants.js';
+import HtmlGenerator from '../scripts/utils/HtmlGenerator';
+import Todo from '../scripts/components/Todo';
+import Form from '../scripts/components/Form';
 
-class Todo {
-    constructor(id, content, status) {
-        this.id = id
-        this.content = content
-        this.status = status
-    }
-    getTodo(id) {
-        
-    }
-    setTodo() {
+let idCounter = 0
 
-    }
+const createCard = (item) => {
+    const todo = new Todo({
+        content: item.content,
+        status: item.status,
+        tag: item.tag,
+        id: idCounter
+    },
+        '#todoTemplate',
+        () => {
+            todo._status.checked = !todo.status
+            todo._status.checked ? this._content.style.setProperty("text-decoration", "line-through") : this._content.style.setProperty("text-decoration", "none")
+        }
+    )
+    idCounter++
+    todo.createTodo()
+    return todo
 }
 
-class TodoList {
-    constructor(id, content, status) {
-
+const todoList = new HtmlGenerator({
+    renderer: (item) => {
+        const todo = createCard(item);
+        todoList.addItem(todo);
     }
-    getTodoById() {
+},
+    '.todos')
 
-    }
-    setTodo() {
-        
-    }
-}
+const todoForm = new Form('#newTodoForm', (values) => {
+    const todo = createCard({ content: values['content'], status: values['checked'], tag: values['tag'] }) 
+    todoList.addItem(todo)
+})
 
-class HtmlGenerator {
-    constructor(id) {
-
-    }
-    render(todo) {
-
-    }
-}
+todoForm.setEventListeners();
