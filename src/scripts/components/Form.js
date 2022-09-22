@@ -9,11 +9,17 @@ export default class Form {
 
         // создаём пустой объект
         this._formValues = {};
-
+        console.log(this._inputList[0]);
         // добавляем в этот объект значения всех полей
         this._inputList.forEach(input => {
-            this._formValues[input.name] = input.value;
-            // console.log(input.name, input.value);
+            
+            if (input.name == 'checked') {
+                this._formValues[input.name] = input.checked;
+                input.checked = false
+            } else {
+                this._formValues[input.name] = input.value;
+                input.value = ''
+            }
         });
 
         // возвращаем объект значений

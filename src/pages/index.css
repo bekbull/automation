@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.element__trash {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background: url(../images/element__trash.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    top: 18px;
+    right: 15px;
+}
+
+.element__trash:hover {
+    opacity: .6;
+}

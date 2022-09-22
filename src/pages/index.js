@@ -15,13 +15,15 @@ const createCard = (item) => {
     },
         '#todoTemplate',
         () => {
-            todo._status.checked = !todo.status
-            todo._status.checked ? this._content.style.setProperty("text-decoration", "line-through") : this._content.style.setProperty("text-decoration", "none")
+            todo._status.checked = !todo._status.checked
+        },
+        () => {
+            todo.delete()
         }
     )
-    idCounter++
-    todo.createTodo()
-    return todo
+    idCounter += 1
+    const post = todo.createTodo()
+    return post
 }
 
 const todoList = new HtmlGenerator({
